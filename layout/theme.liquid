@@ -25,23 +25,26 @@
         <div class="basic">
             {% include 'siteHeader' %}
             {% if template == 'article' or template == 'page' %}
+            <div id="main-content" tabindex="-1">
                 <main class="text-content">
                     {% include 'breadcrumbs' %}
                     {{ contentForLayout }}
                 </main>
+            </div>
             {% elseif template == 'index' %}
+            <div id="main-content" tabindex="-1">
                 {% if settings.indexOtfShow %}
                   {% include 'indexHero' %}
                 {% endif %}
                 <main>
                     {{ contentForLayout }}
                 </main>
+            </div>
             {% else %}
-                <main>
-                    {{ contentForLayout }}
-                </main>
+            <main id="main-content" tabindex="-1">
+                {{ contentForLayout }}
+            </main>
             {% endif %}
-            
         </div>
         {% include 'siteFooter' %}
     </body>
