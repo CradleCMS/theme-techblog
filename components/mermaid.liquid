@@ -1,0 +1,11 @@
+{% comment %}
+  cradlecms.com mermaid loader component.
+  Mermaid is Copyright (c) 2014 - 2022 Knut Sveidqvist
+{% endcomment %}
+{% if allTags contains '!mermaid' %}
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    {% comment %} Available themes https://mermaid.ai/open-source/config/schema-docs/config.html#theme {% endcomment %}
+    mermaid.init({ startOnLoad: true, theme:"default" },".language-mermaid");
+</script>
+{% endif %}

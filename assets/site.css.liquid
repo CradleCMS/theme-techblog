@@ -1075,7 +1075,6 @@ footer {
 /* SITE HEADER */
 .nav-flexbox { 
     display: flex;
-    width: 100%;
     gap: var(--ok-s-2);
     justify-content: end;
 }
@@ -1083,7 +1082,6 @@ footer {
     display: flex;
     flex-direction: row;
     list-style: none;
-    width: 50%;
     margin: 0;
     padding: 0;
     overflow: auto;
@@ -1141,7 +1139,6 @@ footer {
     font-size: var(--ok-fs-3);
     margin-top: 0;
     margin-bottom: 0;
-    width: 20%;
 }
 #title img, #title a {
     color: var(--ok-tc-0);
@@ -1268,9 +1265,6 @@ summary.hamburger::marker {
     #site-header #topnav li {
         display: block;
     }
-    #title {
-        width: 30%;
-    }
     .full #site-header .bg {
         display: inherit;
     }
@@ -1294,9 +1288,6 @@ summary.hamburger::marker {
     }
     .nav-flexbox {
         flex-direction: column;
-    }
-    #title {
-        position: absolute;
     }
     .extended-nav {
         width: 100%;
@@ -1400,6 +1391,7 @@ summary.hamburger::marker {
         }
         p {
             font-size: var(--ok-fs-3);
+            line-height: var(--ok-lh-heading);
         }
         a {
             margin: 0;

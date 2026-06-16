@@ -40,7 +40,8 @@
           "key": "head_extra_code",
           "type": "textarea"
         }
-      ]
+      ],
+      "default": null
     },
     {
       "key": "colors",
@@ -226,6 +227,7 @@
         },
         {
           "caption": "Main nav linklist",
+          "default": "Select linklist",
           "key": "main_nav",
           "type": "linklist"
         },
@@ -280,7 +282,8 @@
           "key": "headerUseSearch",
           "type": "checkbox"
         }
-      ]
+      ],
+      "default": null
     },
     {
       "key": "homepage",
@@ -550,7 +553,8 @@
           ],
           "type": "struct"
         }
-      ]
+      ],
+      "default": null
     },
     {
       "key": "closed",
@@ -656,7 +660,8 @@
           "key": "closed_button_link",
           "type": "text"
         }
-      ]
+      ],
+      "default": null
     },
     {
       "key": "social_media",
@@ -699,7 +704,8 @@
           "key": "social_linkedin_url",
           "type": "text"
         }
-      ]
+      ],
+      "default": null
     }
   ]
 }
