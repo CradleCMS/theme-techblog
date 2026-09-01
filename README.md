@@ -1,4 +1,4 @@
-# Microblog template for Cradle CMS
+# Blog template for Cradle CMS
 
 Designed for web articles written in markdown
 
