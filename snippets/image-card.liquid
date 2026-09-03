@@ -1,5 +1,5 @@
 <a class="image-card" href="{{ article | url }}">
-    <img src="{{ article | img_url:450,0 }}" alt="{{ article.image.alt }}" loading="lazy" />
+    {{ article | img_tag:450,0 }}
     <div class="image-card-content">
         <div>
             <time itemprop="datePublished" datetime="{{ article.publishAt | date }}">{{ article.publishAt | date }}</time>
