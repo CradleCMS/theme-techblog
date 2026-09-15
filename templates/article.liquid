@@ -1,9 +1,11 @@
-<nav id="toc-nav">
-    <details id="toc-details" class="nav" open="">
-        <summary>Page content</summary>
-        <div id="toc"></div>
-    </details>
-</nav>
+{% if settings.articleToc %}
+    <nav id="toc-nav">
+        <details id="toc-details" class="nav" open="">
+            <summary>Page content</summary>
+            <div id="toc"></div>
+        </details>
+    </nav>
+{% endif %}
 <article>
     <header>
         <h1>{{ meta.h1 }}</h1>

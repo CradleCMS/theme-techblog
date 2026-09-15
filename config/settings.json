@@ -50,7 +50,7 @@
       "settings": [
         {
           "caption": "General colors",
-          "description": "The theme has built-in Light- and Dark-mode which is used dependent on the users browser settings.",
+          "description": "The theme has built-in Light- and Dark-mode which is used dependent on the users browser settings",
           "key": "general_colors",
           "type": "header"
         },
@@ -62,7 +62,7 @@
           "type": "color"
         },
         {
-          "caption": "Highlight text (--ok-t-hl)",
+          "caption": "Highlight text",
           "default": "#ffcf30",
           "key": "color-t-hl",
           "type": "color"
@@ -114,20 +114,20 @@
           "type": "color"
         },
         {
-          "caption": "Bg color (b-0)",
+          "caption": "Bg color",
           "default": "#ffffff",
           "description": "Main bg color",
           "key": "color-bg-0",
           "type": "color"
         },
         {
-          "caption": "Bg color (b-1)",
+          "caption": "Bg color inputs",
           "default": "#f0f0f0",
           "key": "color-bg-1",
           "type": "color"
         },
         {
-          "caption": "Bg color (b-2)",
+          "caption": "Bg color alt",
           "default": "#cccccc",
           "key": "color-bg-2",
           "type": "color"
@@ -508,6 +508,43 @@
           "default": "Select blog",
           "key": "homepage_blog",
           "type": "blog"
+        }
+      ],
+      "default": null
+    },
+    {
+      "key": "blog",
+      "type": "section",
+      "caption": "Blogs",
+      "settings": [
+        {
+          "caption": "Articles",
+          "key": "articleHeader",
+          "type": "header"
+        },
+        {
+          "caption": "Use table of content",
+          "key": "articleToc",
+          "type": "checkbox"
+        },
+        {
+          "caption": "Article width",
+          "key": "articleWidth",
+          "options": [
+            {
+              "caption": "Small",
+              "value": "65ch"
+            },
+            {
+              "caption": "Medium",
+              "value": "80ch"
+            },
+            {
+              "caption": "Large",
+              "value": "95ch"
+            }
+          ],
+          "type": "select"
         }
       ],
       "default": null
