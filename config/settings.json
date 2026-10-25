@@ -1,6 +1,6 @@
 {
   "name": "Microblog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "developer": "Cradle Systems",
   "description": "Microblog Cradle theme",
   "source": "",
@@ -34,6 +34,27 @@
             }
           ],
           "type": "select"
+        },
+        {
+          "caption": "Header font",
+          "description": "Make sure to provide both font-file formats",
+          "key": "fontHeadingHeader",
+          "type": "header"
+        },
+        {
+          "caption": "Use custom font",
+          "key": "fontHeadingEnable",
+          "type": "checkbox"
+        },
+        {
+          "caption": "Font woff2",
+          "key": "fontHeadingWOFF2",
+          "type": "asset"
+        },
+        {
+          "caption": "Font TTF",
+          "key": "fontHeadingTTF",
+          "type": "asset"
         },
         {
           "caption": "Extra code for the head",

@@ -11,6 +11,18 @@ body {
 main {
     display: block;
 }
+{% if  settings.fontHeadingEnable %}
+@font-face {
+    font-family: 'FontHeading';
+    src: url("{{ settings.fontHeadingWOFF2 | asset_url }}") format('woff2'),
+         url("{{ settings.fontHeadingTTF | asset_url }}")  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+h1,h2,h3,h4 {
+    font-family: FontHeading;
+}
+{% endif %}
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
