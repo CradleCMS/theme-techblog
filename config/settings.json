@@ -1,6 +1,6 @@
 {
   "name": "Microblog",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "developer": "Cradle Systems",
   "description": "Microblog Cradle theme",
   "source": "",
@@ -323,7 +323,7 @@
           "type": "checkbox"
         },
         {
-          "caption": "Height of Viewport",
+          "caption": "Height",
           "key": "indexOtfHeight",
           "options": [
             {
@@ -377,19 +377,38 @@
           "type": "color"
         },
         {
+          "caption": "Content position",
+          "key": "indexOtfPos",
+          "options": [
+            {
+              "caption": "Center",
+              "value": "center"
+            },
+            {
+              "caption": "Left-aligned",
+              "value": "left"
+            }
+          ],
+          "type": "select"
+        },
+        {
           "caption": "Background on content",
           "key": "indexOtfCardBg",
           "options": [
             {
               "caption": "None",
-              "value": "bg-0"
+              "value": " transparent"
+            },
+            {
+              "caption": "Light",
+              "value": " bg-0"
             },
             {
               "caption": "Default",
               "value": " bg-1"
             },
             {
-              "caption": "Darker base color",
+              "caption": "Darker",
               "value": " bg-2"
             },
             {

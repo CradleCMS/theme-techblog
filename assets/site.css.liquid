@@ -190,7 +190,7 @@ template {
     --ok-s-5: 2rem;
     --ok-s-6: 2.5rem;
     --ok-s-7: 3rem;
-    --ok-lh-body: {{ settings.ok-lh-body | def:'1.3rem' }};
+    --ok-lh-body: {{ settings.ok-lh-body | def:'1.3' }};
     --ok-lh-heading: 1.25;
     --ok-t-hl:  {{ settings.color-t-hl | def:'#ffcf30' }};
     --ok-accent-0: {{ settings.color-accent-0 | def:'#3e67fa' }};
@@ -1064,6 +1064,9 @@ main {
 .text-center {
     text-align: center;    
 }
+.transparent {
+    background-color: transparent;
+}
 .bg-0 {
     background-color: var(--ok-bg-0);
 }
@@ -1098,7 +1101,7 @@ footer {
     list-style: none;
     margin: 0;
     padding: 0;
-    overflow: auto;
+    overflow: scroll;
     white-space: nowrap;
     align-items: center;
 }
@@ -1295,6 +1298,7 @@ summary.hamburger::marker {
         flex-direction: column;
         align-items: baseline;
         gap: var(--ok-s-2);
+        padding: var(--ok-s-2);
     }
     #site-header #topnav > ul {
         right: var(--ok-s-5);
@@ -1304,11 +1308,7 @@ summary.hamburger::marker {
         flex-direction: column;
     }
     .extended-nav {
-        width: 100%;
-    }
-    .extended-nav {
-        margin: var(--ok-s-2);
-        height: 2rem;
+        width: 95vw;
     }
     .extended-nav li {
         margin: 0;
@@ -1374,38 +1374,46 @@ summary.hamburger::marker {
 /* BREADCRUMBS ENDS */
 /* INDEX HERO */
 .index-hero {
+    min-height: {{ settings.indexOtfHeight | def:'80vh' }};
+    background: 
+      radial-gradient(
+          ellipse at {% if settings.indexOtfPos == "center" %} 50% 40%{% else %} 38% 48%{% endif %},
+          color-mix(in oklab, {{ settings.indexOtfBgColor | def: "#ffffff" }} 40%, transparent 60%) 20%,
+          color-mix(in oklab, {{ settings.indexOtfBgColor | def: "#ffffff" }} 5%, transparent 95%) 100%
+        ),
+      url({{ settings.indexOtfImg | asset_img_url:1024,0 }});
+    {% if settings.indexOtfImg == blank %}
+    background-color: {{ settings.indexOtfBgColor }};
+    {% endif %}
     background-size: cover;
     display: grid;
     place-content: center;
     padding-top: 4rem;
     padding-bottom: var(--ok-s-3);
     .hero-content {
-        max-width: calc(var(--ok-body) * 0.66);
+        width: var(--ok-body);
+        max-width: 95vw;
         margin: 0 auto;
-        margin-left: var(--ok-s-3);
-        margin-right: var(--ok-s-3);
-        padding: var(--ok-s-3);
         display: flex;
+        align-items: center;
+        {% if settings.indexOtfPos == "center" %} 
+        flex-direction: column;
+        {% else %}
         flex-direction: row;
+        {% endif %}
         gap: var(--ok-s-3);
-        border-radius: var(--ok-br);
         > * {
             max-width: 700px;
             margin: 0;
         }
-        .hero-text {
-            flex-shrink: 2;
-            display: grid;
-            place-content: center;
-            justify-items: center;
-            padding: var(--ok-s-4);
+        .glass-effect, .bg-0, .bg-1, .bg-2 {
+            padding: var(--ok-s-3);
         }
         h1 {
-            margin: 0;
+            margin-top: var(--ok-s-3);
         }
         p {
-            font-size: var(--ok-fs-3);
-            line-height: var(--ok-lh-heading);
+            font-size: var(--ok-fs-2);
         }
         a {
             margin: 0;
@@ -1423,11 +1431,9 @@ summary.hamburger::marker {
 }
 @media (max-width: 1100px) {
     .index-hero .hero-content {
-        margin: var(--ok-s-3);
-        margin-bottom: var(--ok-s-6);
-        max-width: 950px;
-        p {
-            font-size: var(--ok-fs-2);
+        margin: var(--ok-s-3) var(--ok-s-6);
+        h1 {
+            margin-top: var(--ok-s-3);
         }
         figure {
             max-width: 50%;     
@@ -1440,7 +1446,6 @@ summary.hamburger::marker {
     }
     .index-hero .hero-content {
         flex-direction: column-reverse;
-        max-width: 420px;
         figure {
             max-width: 100%;    
             margin: 0 auto;

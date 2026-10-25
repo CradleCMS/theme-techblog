@@ -1,6 +1,6 @@
-<div class="index-hero" style="min-height: {{ settings.indexOtfHeight | def:'80vh' }}; background-image: url({{ settings.indexOtfImg | asset_img_url:1024,0 }}); background-color: {{ settings.indexOtfBgColor }};">
-  <div class="hero-content text-center {{ settings.indexOtfCardBg | def:'bg-0' }}">
-    <div class="hero-text">
+<div class="index-hero">
+  <div class="hero-content">
+    <div class="hero-text{{ settings.indexOtfCardBg | def:'bg-0' }}{% if settings.indexOtfPos == "center" %} text-center{% endif %}">
       {% if settings.indexOtfTitle %}
         <h1>{{ settings.indexOtfTitle | t }}</h1>
       {% endif %}
@@ -11,7 +11,7 @@
         <a class="btn" href="{{ settings.indexOtfBtnUrl }}">{{ settings.indexOtfBtnText | t }}</a>
       {% endif %}
     </div>
-    {% if settings.indexOtfFgimg %}
+    {% if settings.indexOtfFgimg != blank %}
         <figure>
             <img src="{{ settings.indexOtfFgimg | asset_img_url:450,0 }}" alt="{{ settings.indexOtfFgimgAlt | t }}">
         </figure>
