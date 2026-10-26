@@ -1381,7 +1381,11 @@ summary.hamburger::marker {
           color-mix(in oklab, {{ settings.indexOtfBgColor | def: "#ffffff" }} 40%, transparent 60%) 20%,
           color-mix(in oklab, {{ settings.indexOtfBgColor | def: "#ffffff" }} 5%, transparent 95%) 100%
         ),
-      url({{ settings.indexOtfImg | asset_img_url:1024,0 }});
+      {% if settings.indexOtfImg contains '.svg' %}
+      url({{ settings.indexOtfImg | asset_img_url }});
+      {% else %}
+      url({{ settings.indexOtfImg | asset_img_url:1200,0 }});
+      {% endif %}
     {% if settings.indexOtfImg == blank %}
     background-color: {{ settings.indexOtfBgColor }};
     {% endif %}
