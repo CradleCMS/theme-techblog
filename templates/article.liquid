@@ -10,7 +10,7 @@
     <header>
         <h1>{{ meta.h1 }}</h1>
         <p>
-            {% if article.author %}{{ article.author }}<br>{% endif article.author %}<time itemprop="dateModified">{{ article.publishAt | date }}</time> 
+            {% if article.author != blank %}{{ article.author }}, {% endif article.author %}<time itemprop="dateModified">{{ "Published" | t }} {{ article.publishAt | date }}</time> 
     	</p>    
     </header>
     {{ article.excerpt }}

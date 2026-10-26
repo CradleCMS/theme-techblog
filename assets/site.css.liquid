@@ -1041,7 +1041,6 @@ main {
     max-width: var(--ok-body);
     padding: var(--ok-s-3);
     margin: auto;
-    margin-top: var(--ok-s-6);
 }
 .text-content {
     max-width: var(--bodytext);
@@ -1176,9 +1175,11 @@ nav a:last-child svg {
     margin-right: 0;
 }
 #site-header {
-  position: fixed;
+  position: sticky;
+  top:0;
   width: 100%;
   border-bottom: var(--ok-b-0);
+  margin: 0;
   z-index: 1;
 }
 #site-header nav {
@@ -1381,11 +1382,11 @@ summary.hamburger::marker {
           color-mix(in oklab, {{ settings.indexOtfBgColor | def: "#ffffff" }} 40%, transparent 60%) 20%,
           color-mix(in oklab, {{ settings.indexOtfBgColor | def: "#ffffff" }} 5%, transparent 95%) 100%
         ),
-      {% if settings.indexOtfImg contains '.svg' %}
-      url({{ settings.indexOtfImg | asset_img_url }});
-      {% else %}
-      url({{ settings.indexOtfImg | asset_img_url:1200,0 }});
-      {% endif %}
+        {% if settings.indexOtfImg contains '.svg' %}
+        url({{ settings.indexOtfImg | asset_img_url }});
+        {% else %}
+        url({{ settings.indexOtfImg | asset_img_url:1200,0 }});
+        {% endif %}    
     {% if settings.indexOtfImg == blank %}
     background-color: {{ settings.indexOtfBgColor }};
     {% endif %}
@@ -1628,7 +1629,9 @@ aside {
 }
 .template-article #main-content {
     margin: 0 auto;
+    margin-bottom: var(--ok-s-4);
     width: var(--bodyarticle);
+    max-width: 100%;
 }
 @media (width < 160ch) {
     #toc-nav {
