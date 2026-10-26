@@ -3,9 +3,9 @@
   "version": "1.0.2",
   "developer": "Cradle Systems",
   "description": "Microblog Cradle theme",
-  "source": "",
+  "source": "https://github.com/CradleCMS/theme-techblog",
   "homepage": "",
-  "support": "",
+  "support": "hi@cradlecms.com",
   "sections": [
     {
       "key": "global_settings",
