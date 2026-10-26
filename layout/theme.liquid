@@ -49,7 +49,7 @@
         {% include 'siteFooter' %}
     </body>
     {{ 'site.js' | script_tag }}
-    {% if template == 'article' %}
+    {% if template == 'article' and settings.articleToc %}
         {{ 'toc.js' | script_tag }}
     {% endif %}
     {% component 'alang.liquid' %}
