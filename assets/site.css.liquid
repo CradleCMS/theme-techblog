@@ -386,7 +386,6 @@ hgroup,
 hr,
 iframe,
 img,
-input,
 main,
 nav,
 object,
@@ -440,9 +439,87 @@ table:last-child,
 ul:last-child {
     margin-bottom: 0;
 }
+/* BUTTON */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+a.btn,
+.btn {
+    display: inline-block;
+    background-color: var(--accent-0);
+    border-radius: var(--br-box);
+    color: #fff;
+    font-weight: var(--fw-1);
+    height: 2.5rem;
+    border: 2px solid var(--accent-0);
+    padding: var(--s-2) var(--s-3);
+    white-space: nowrap;
+    min-width: auto;
+}
+a.btn-outline, 
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--accent-0);
+    color: var(--accent-0);
+}
+a.btn-sm,
+.btn-sm {
+  height: 2rem;
+  line-height: 0.8rem;  
+}
+input::-webkit-file-upload-button {
+    display: inline-block;
+    background-color: var(--accent-0);
+    border-radius: var(--br-box);
+    color: #fff;
+    font-weight: var(--fw-1);
+    height: 2.5rem;
+    border: none;
+    padding: var(--s-2) var(--s-3);
+    white-space: nowrap;
+}
+input:disabled::-webkit-file-upload-button {
+    cursor: default;
+    opacity: 0.5;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+a.btn {
+    cursor: pointer;
+}
+input:not(:disabled)::-webkit-file-upload-button {
+    cursor: pointer;
+}
+button:disabled,
+input[type="button"]:disabled,
+input[type="reset"]:disabled,
+input[type="submit"]:disabled,
+a.btn:disabled {
+    cursor: default;
+    opacity: 0.5;
+    background-color: var(--accent-0);
+}
+button:focus:not(:disabled),
+input[type="button"]:focus:not(:disabled),
+input[type="reset"]:focus:not(:disabled),
+input[type="submit"]:focus:not(:disabled),
+a.btn:focus:not(:disabled) {
+    background-color: var(--accent-1);
+}
+input:not(:disabled):focus::-webkit-file-upload-button {
+    background-color: var(--accent-1);
+}
+/* BUTTON ENDS */
+/* FORMS */
 form {
+    background-color: var(--bg-0-card);
     width: var(--formwidth);
     max-width: 100%;
+    padding: var(--s-3);
+    margin: 0 auto;
 }
 fieldset {
     padding: var(--s-3);
@@ -456,13 +533,14 @@ legend {
 }
 input,
 select {
-    padding: var(--s-2);
+    padding: var(--s-1);
     background: var(--bg-0);
     border: var(--b-0);
     border-radius: var(--br-box);
     color: var(--tc-0);
     width: var(--formwidth);
     max-width: 100%;
+    margin-bottom: var(--s-3);
 }
 input:disabled,
 select:disabled,
@@ -514,8 +592,8 @@ input[type="file"] {
 input[type="checkbox"],
 input[type="radio"] {
     display: block;
-    width: auto;
-    float: right;
+    width: var(--s-3);
+    margin-right: var(--s-1);
 }
 input[type="color"] {
     height: 2.5rem;
@@ -731,88 +809,23 @@ textarea {
     width:  var(--formwidth);
     max-width: 100%;
 }
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-a.btn,
-.btn {
-    display: inline-block;
-    background-color: var(--accent-0);
-    border-radius: var(--br-box);
-    color: #fff;
-    font-weight: var(--fw-1);
-    height: 2.5rem;
-    border: 2px solid var(--accent-0);
-    padding: var(--s-2) var(--s-3);
-    white-space: nowrap;
-    min-width: auto;
-}
-a.btn-outline, 
-.btn-outline {
-    background-color: transparent;
-    border: 2px solid var(--accent-0);
-    color: var(--accent-0);
-}
-a.btn-sm,
-.btn-sm {
-  height: 2rem;
-  line-height: 0.8rem;  
-}
-input::-webkit-file-upload-button {
-    display: inline-block;
-    background-color: var(--accent-0);
-    border-radius: var(--br-box);
-    color: #fff;
-    font-weight: var(--fw-1);
-    height: 2.5rem;
-    border: none;
-    padding: var(--s-2) var(--s-3);
-    white-space: nowrap;
-}
-input:disabled::-webkit-file-upload-button {
-    cursor: default;
-    opacity: 0.5;
-}
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-a.btn {
-    cursor: pointer;
-}
-input:not(:disabled)::-webkit-file-upload-button {
-    cursor: pointer;
-}
-button:disabled,
-input[type="button"]:disabled,
-input[type="reset"]:disabled,
-input[type="submit"]:disabled,
-a.btn:disabled {
-    cursor: default;
-    opacity: 0.5;
-    background-color: var(--accent-0);
-}
-button:focus:not(:disabled),
-input[type="button"]:focus:not(:disabled),
-input[type="reset"]:focus:not(:disabled),
-input[type="submit"]:focus:not(:disabled),
-a.btn:focus:not(:disabled) {
-    background-color: var(--accent-1);
-}
-input:not(:disabled):focus::-webkit-file-upload-button {
-    background-color: var(--accent-1);
-}
 label {
     display: block;
-    float: left;
     clear: both;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-1);
 } 
-label:has(+ input[type="checkbox"], + input[type="radio"]) {
+label:has(input[type="checkbox"], input[type="radio"]) {
+    display: flex;
+    font-size: var(--fs-base);
     margin-right: var(--s-2);
-    margin-bottom: var(--s-3);
-    width: 20ch;
+    margin-bottom: var(--s-2);
 }
+label:has(+ label) {
+    font-size: var(--fs-base);
+    margin-bottom: var(--s-2);
+}
+/* FORMS END */
 table {
     border-collapse: collapse;
     display: table;
