@@ -1,3 +1,29 @@
+{% if settings.topGridShow %}
+    <section class="grid-section">
+        {% unless settings.topGridHeading == blank %}
+        <h2>{{ settings.topGridHeading | t }}</h2>
+        {% endunless %}
+        <div class="grid-row">
+            {% let imgWidth = settings.topGridItemWidth %}
+            {% let imgHeight = settings.topGridImgHeight | def:250 | times:2 %}
+            {% for item in settings.topGridItems %}
+                <div class="grid-card p-0 gap-0 box-item grow-0 shrink-0 items-center text-center {% if settings.topGridBg %} bg-base-100 text-base-content rounded-box p-2 {{ settings.general_shadow }}{% endif %}">
+                    {% if item.url.size > 0 %}<a href="{{ item.url }}">{% endif %}
+                        {% if item.image != empty %}
+                        <img height="{{ imgHeight | divided_by:2 }}" src="{{ item.image | asset_img_url:imgWidth,imgHeight }}" alt="{{ item.alt | t }}" class="mx-auto"/>
+                        {% endif %}
+                        {% if item.caption %}
+                            <h4 class="card-title text-xl mt-4 mb-2 p-1 font-bold justify-center ">{{ item.caption | t }}</h4>
+                        {% endif %}
+                        {% if item.desc %}
+                            <p class="text-center grow-0 mb-2 p-1">{{ item.desc | t }}</p>
+                        {% endif %}
+                    {% if item.url.size > 0 %}</a>{% endif %}
+                </div>
+            {% endfor %}
+        </div>        
+    </section>
+{% endif %}
 {% if settings.indexBannerShow %}
     {% include 'indexBannerSections' %}
 {% endif %}

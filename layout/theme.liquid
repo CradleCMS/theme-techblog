@@ -19,7 +19,9 @@
         <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <link rel="stylesheet" type="text/css" href="{{ 'site.css.liquid' | asset_url }}">
-        {{ settings.head_extra_code }}
+        {% for asset in settings.customAsset %}
+            {{ asset.file | stylesheet_tag }}
+        {% endfor %}
     </head>
     <body id="{{ meta.title | handle }}" class="template-{{ template | replace: '.', ' ' | split: ' ' | first | handle }}">
         <div class="basic">

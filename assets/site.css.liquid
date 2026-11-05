@@ -1,5 +1,4 @@
-/* OK.css  */
-/*! OK.css v1.2.0 | MIT License | github.com/andrewh0/okcss */
+/*! This theme is based on OK.css v1.2.0 | MIT License | github.com/andrewh0/okcss */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 html {
@@ -245,7 +244,7 @@ html {
     font-family: var(--ff-sans);
     line-sizing: normal;
     line-height: var(--lh-body);
-    font-weight: var(--fw-0);
+    font-weight: var(--fw-1);
     color: var(--tc-0);
     background-color: var(--bg-0);
     -webkit-font-smoothing: antialiased;
@@ -1469,6 +1468,42 @@ summary.hamburger::marker {
     }
 }
 /* INDEX HERO ENDS */
+/* INDEX GRID SECTIONS */  
+.grid-section {
+    text-align: center;    
+}
+.grid-row {
+    display: flex;
+    gap: var(--s-4);
+    overflow-x: scroll;
+}
+.grid-card {
+    display: flex;    
+    flex-direction: column;
+    flex: auto;
+    gap: var(--s-2);
+{% unless settings.topGridItemWidth == "0" %}
+{% let imgWidth = settings.topGridItemWidth %}
+    width: {{imgWidth}}px;
+{% endunless %}
+{% let imgHeight = settings.topGridImgHeight | def:250 %}
+    height: {{imgWidth}}px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.grid-card img{
+    margin-bottom: 0;
+    {% let imgHeight = settings.topGridImgHeight | def:250 %}
+    height: {{imgHeight}}px;
+    max-height: 80vh;
+}
+.grid-card:first-child {
+    margin-left: auto;
+} 
+.grid-card:last-child {
+    margin-right: auto;
+}
+/* INDEX GRID SECTIONS ENDS */  
 /* INDEX BANNER SECTIONS */  
 .index-banner {
     padding: var(--s-3);
