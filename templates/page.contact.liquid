@@ -1,5 +1,11 @@
 <section>
     <h1>{{ meta.h1 }}</h1>
-    <div class="{{ page.format }}">{{ page.html }}</div>
+    <div class="{{ page.format }}">
+    {% if allTags contains '!render' %}
+		{{ page.html | render }}
+	{% else %}
+		{{ page.html }}
+    {% endif %}
+    </div>
     {% form 'contact' %}{% endform %}
 </section>

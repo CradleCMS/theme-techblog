@@ -1,4 +1,10 @@
 <section>
     <h1>{{ meta.h1 }}</h1>
-    <div id="main-content" class="{{ page.format }}">{{ page.html }}</div>
+    <div id="main-content" class="{{ page.format }}">        
+    {% if allTags contains '!render' %}
+		{{ page.html | render }}
+	{% else %}
+		{{ page.html }}
+    {% endif %}
+     </div>
 </section>
